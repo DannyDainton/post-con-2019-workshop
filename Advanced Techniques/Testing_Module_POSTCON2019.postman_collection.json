@@ -1,0 +1,654 @@
+{
+	"info": {
+		"_postman_id": "1ff41680-a74b-4152-993d-231d5aec8664",
+		"name": "Testing Module - POST/CON 2019",
+		"description": "This Collection will be used to demo many of the different test related features of Postman.\n\nThe example includes usage of Dynamic Variables, ChaiJS Assertions, Postman Console and an intro to the AJV schema validation.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Advanced Techniques",
+			"item": [
+				{
+					"name": "Example One - Dynamic Variables",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "44897206-109b-4e3a-91d0-6fcbbf6ec8a4",
+								"exec": [
+									"// Tests to check the Status Code and the Response Time have been added at the collection level",
+									"// These tests can be found by pressing the (...) button on the Collection name in the sidebar",
+									"// Then Selecting the `Edit` option from the menu",
+									"// Select the `Tests` tab to see the 2 tests"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "dynamicHeader",
+								"value": "{{$randomMonth}}",
+								"description": "Creates a new Header with a random month",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"contacts\": [\n        {\n            \"name\": \"{{$randomFullName}}\",\n            \"jobTitle\": \"{{$randomJobTitle}}\",\n            \"companyName\": \"{{$randomCompanyName}}\"\n        },\n        {\n            \"name\": \"{{$randomFullName}}\",\n            \"jobTitle\": \"{{$randomJobTitle}}\",\n            \"companyName\": \"{{$randomCompanyName}}\"\n        },\n        {\n            \"name\": \"{{$randomFullName}}\",\n            \"jobTitle\": \"{{$randomJobTitle}}\",\n            \"companyName\": \"{{$randomCompanyName}}\"\n        }\n    ]\n}"
+						},
+						"url": {
+							"raw": "https://postman-echo.com/post?dynamicParam={{$randomWord}}",
+							"protocol": "https",
+							"host": [
+								"postman-echo",
+								"com"
+							],
+							"path": [
+								"post"
+							],
+							"query": [
+								{
+									"key": "dynamicParam",
+									"value": "{{$randomWord}}",
+									"description": "Creates a new query param with a random word"
+								}
+							]
+						},
+						"description": "In this example, we are sending a `POST` request and using some of the dynamic variables in the `Params`, `Headers` and `Request Body`."
+					},
+					"response": [
+						{
+							"name": "Example Two - Mock Dynamic Variables",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"contacts\": [\n        {\n            \"name\": \"{{$randomFullName}}\",\n            \"jobTitle\": \"{{$randomJobTitle}}\",\n            \"companyName\": \"{{$randomCompanyName}}\"\n        },\n        {\n            \"name\": \"{{$randomFullName}}\",\n            \"jobTitle\": \"{{$randomJobTitle}}\",\n            \"companyName\": \"{{$randomCompanyName}}\"\n        },\n        {\n            \"name\": \"{{$randomFullName}}\",\n            \"jobTitle\": \"{{$randomJobTitle}}\",\n            \"companyName\": \"{{$randomCompanyName}}\"\n        }\n    ]\n}"
+								},
+								"url": {
+									"raw": "/mock",
+									"path": [
+										"mock"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"contacts\": [\n        {\n            \"name\": \"{{$randomFullName}}\",\n            \"jobTitle\": \"{{$randomJobTitle}}\",\n            \"companyName\": \"{{$randomCompanyName}}\"\n        },\n        {\n            \"name\": \"{{$randomFullName}}\",\n            \"jobTitle\": \"{{$randomJobTitle}}\",\n            \"companyName\": \"{{$randomCompanyName}}\"\n        },\n        {\n            \"name\": \"{{$randomFullName}}\",\n            \"jobTitle\": \"{{$randomJobTitle}}\",\n            \"companyName\": \"{{$randomCompanyName}}\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Example Two - Mock Dynamic Variables",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "44897206-109b-4e3a-91d0-6fcbbf6ec8a4",
+								"exec": [
+									"// Tests to check the Status Code and the Response Time have been added at the collection level",
+									"// These tests can be found by pressing the (...) button on the Collection name in the sidebar",
+									"// Then Selecting the `Edit` option from the menu",
+									"// Select the `Tests` tab to see the 2 tests"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{mockURL}}/mock",
+							"host": [
+								"{{mockURL}}"
+							],
+							"path": [
+								"mock"
+							]
+						},
+						"description": "In this example, we will be using a `Mock Server` with an example created show the Dynamic Variables."
+					},
+					"response": [
+						{
+							"name": "Example Two- Dynamic Variables Mock",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "dynamicHeader",
+										"value": "{{$randomMonth}}",
+										"description": "Creates a new Header with a random month",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"contacts\": [\n        {\n            \"name\": \"{{$randomFullName}}\",\n            \"jobTitle\": \"{{$randomJobTitle}}\",\n            \"companyName\": \"{{$randomCompanyName}}\"\n        },\n        {\n            \"name\": \"{{$randomFullName}}\",\n            \"jobTitle\": \"{{$randomJobTitle}}\",\n            \"companyName\": \"{{$randomCompanyName}}\"\n        },\n        {\n            \"name\": \"{{$randomFullName}}\",\n            \"jobTitle\": \"{{$randomJobTitle}}\",\n            \"companyName\": \"{{$randomCompanyName}}\"\n        }\n    ]\n}"
+								},
+								"url": {
+									"raw": "/mock",
+									"path": [
+										"mock"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"contacts\": [\n        {\n            \"name\": \"{{$randomFullName}}\",\n            \"jobTitle\": \"{{$randomJobTitle}}\",\n            \"companyName\": \"{{$randomCompanyName}}\"\n        },\n        {\n            \"name\": \"{{$randomFullName}}\",\n            \"jobTitle\": \"{{$randomJobTitle}}\",\n            \"companyName\": \"{{$randomCompanyName}}\"\n        },\n        {\n            \"name\": \"{{$randomFullName}}\",\n            \"jobTitle\": \"{{$randomJobTitle}}\",\n            \"companyName\": \"{{$randomCompanyName}}\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Example Three - Response Checks",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "08373503-3f39-45ca-9ee4-21ebca048c0b",
+								"exec": [
+									"// Check that the status code label contains the correct value",
+									"pm.test(\"The status code is OK\", () => {",
+									"    pm.response.to.have.status('OK')",
+									"})",
+									"",
+									"// Check that the body is JSON",
+									"pm.test(\"The response body is JSON\", () => {",
+									"    pm.response.to.be.json;",
+									"});",
+									"",
+									"// Check that the response contains the correct headers ",
+									"pm.test(\"The Content-Type header is returned in the response\", () => { ",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"",
+									"// Check that the response header is the correct value",
+									"pm.test(\"The Content-Type header has the correct value\", () => { ",
+									"    pm.response.to.have.header(\"Content-Type\", \"application/json; charset=utf-8\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{randomMeURL}}",
+							"host": [
+								"{{randomMeURL}}"
+							]
+						},
+						"description": "In this example, we will checks different aspects of the response and use the power of the `pm.*` API and the avaiable functions to help us check for different aspects of the response.\n\nAll the functions and a ton of other super help information can be found be on the [API Sandbox Reference](https://learning.getpostman.com/docs/postman/scripts/postman_sandbox_api_reference/) page.\n\n---\n\nResponse Assertion API available in the test scripts:\n\n```javascript\npm.response.to.have.status(code:Number)\npm.response.to.have.status(reason:String)\npm.response.to.have.header(key:String)\npm.response.to.have.header(key:String, optionalValue:String)\npm.response.to.have.body()\npm.response.to.have.body(optionalValue:String)\npm.response.to.have.body(optionalValue:RegExp)\npm.response.to.have.jsonBody()\npm.response.to.have.jsonBody(optionalExpectEqual:Object)\npm.response.to.have.jsonBody(optionalExpectPath:String)\npm.response.to.have.jsonBody(optionalExpectPath:String, optionalValue:*)\npm.response.to.have.jsonSchema(schema:Object)\npm.response.to.have.jsonSchema(schema:Object, ajvOptions:Object)\n```"
+					},
+					"response": []
+				},
+				{
+					"name": "Example Four - Response Data Chai Assertions",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c2c40096-5f51-4880-adb0-5395f6594c36",
+								"exec": [
+									"// Parsing all the response data and saving that to a variable ",
+									"const jsonData = pm.response.json();",
+									"",
+									"// Check that the response body is not empty",
+									"// The pm.expect() function takes an additional argument to add custom messages to the assertion",
+									"pm.test(\"The response body is not empty\", () => {",
+									"    pm.expect(pm.response.json(), \"The response body is empty\").to.not.be.empty;",
+									"});",
+									"",
+									"// Testing that the response is an object and has the correct keys",
+									"pm.test(\"The response should be an object\", () => {",
+									"    pm.expect(jsonData).to.be.an('object').to.have.keys('results', 'info');",
+									"});",
+									"",
+									"",
+									"// Testing that the objects in the array have the correct keys",
+									"pm.test(\"The object should have the correct keys\", () => {",
+									"    jsonData.results.forEach(result => {",
+									"        pm.expect(result).to.have.keys('gender', 'name', 'email', 'location', 'dob','phone');",
+									"    });",
+									"});",
+									"",
+									"// Using oneOf to show that an assertion can be one of many things",
+									"pm.test(\"The gender value should be `male` or `female`\", () => {",
+									"    jsonData.results.forEach(result => {",
+									"        pm.expect(result.gender).to.be.oneOf(['male', 'female']);",
+									"    });",
+									"});",
+									"",
+									"// Taking data from one part of the response and using it to assert against another value",
+									"pm.test(\"The email address should contain the correct name\", () => {",
+									"    jsonData.results.forEach(result => {",
+									"       ",
+									"        // Set the values of the first and last name as a local variable",
+									"        let firstName = result.name.first;",
+									"        let lastName  = result.name.last;",
+									"        ",
+									"        // Check that the created email address contains the full name",
+									"        // Using .replace() to removed the whitespace in the name eg. marco de silva = marko.desilva",
+									"        pm.expect(result.email).to.equal(`${firstName.replace(\" \", \"\")}.${lastName.replace(\" \", \"\")}@example.com`);",
+									"    });",
+									"});",
+									"",
+									"// Testing multiple different scenarios for the `dob` object",
+									"pm.test(\"The `dob` object should contain the correct data\", () => {",
+									"    jsonData.results.forEach(result => {",
+									"        // Check that `dob` is an object with the specified keys",
+									"        pm.expect(result.dob).to.be.a('object').and.have.keys('date', 'age');",
+									"        ",
+									"        // Check that `date` has the correct data type",
+									"        pm.expect(result.dob.date).to.be.a('string');",
+									"        ",
+									"        // Check that the values are not empty, null or undefined",
+									"        pm.expect(result.dob.date).to.not.be.empty;",
+									"        pm.expect(result.dob.date).to.not.be.null;",
+									"        pm.expect(result.dob.date).to.not.be.undefined;",
+									"        ",
+									"        // Check that the date format is correct using .match()",
+									"        pm.expect(result.dob.date).to.match(/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$/);",
+									"        ",
+									"        // Check that `age` has the correct data type and is below 100",
+									"        pm.expect(result.dob.age).to.be.a('number').and.be.below(100);",
+									"        ",
+									"        // Check that the values is not null or undefined",
+									"        pm.expect(result.dob.age).to.not.be.null;",
+									"        pm.expect(result.dob.age).to.not.be.undefined;",
+									"    });",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{randomMeURL}}?inc=gender,name,email,dob,phone,location&seed=postman",
+							"host": [
+								"{{randomMeURL}}"
+							],
+							"query": [
+								{
+									"key": "inc",
+									"value": "gender,name,email,dob,phone,location"
+								},
+								{
+									"key": "seed",
+									"value": "postman"
+								}
+							]
+						},
+						"description": "In this example, we will be using some of the other [Chaijs](https://www.chaijs.com/api/bdd/) methods in our tests to check different parts of the `Response Body` data."
+					},
+					"response": []
+				},
+				{
+					"name": "Example Five - Built-in Modules",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c2c40096-5f51-4880-adb0-5395f6594c36",
+								"exec": [
+									"// Parsing all the response data and saving that to a variable ",
+									"const jsonData = pm.response.json().data;",
+									"",
+									"// Using the the `_.each()` function to loop through the response data ",
+									"pm.test(\"Capitalize the first name\", () => {",
+									"    _.each(jsonData.users, (user) => {",
+									"        // Using the .capitalize() function to change the data and put a capital letter at the start",
+									"        pm.expect(_.capitalize(user.firstName)).to.equal('Joe')",
+									"        // This assertion is checking the raw response and the name that it returns",
+									"        pm.expect(user.firstName).to.equal('joe')",
+									"    })",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "8121f6b8-6b2c-427f-9dc3-6c13ab04b58a",
+								"exec": [
+									"// Bringing in the moment module",
+									"var moment = require('moment');",
+									"",
+									"// Creating a variable to use as the start date in a particular format",
+									"pm.globals.set(\"startDate\", moment().format(\"DD/MM/YYYY\"));",
+									"",
+									"// Creating a variable to use as the end date and using the .add() function to set it 30 days in the future",
+									"pm.globals.set(\"endDate\", moment().add(30,'days').format(\"DD/MM/YYYY\"));",
+									"",
+									"// Creating a variable with the .random() function to set a new number in the 500 > 5000 range",
+									"pm.globals.set(\"favoriteNumber\", _.random(500, 5000));",
+									"",
+									"",
+									"// Using the .shuffle() function to change the order of an array",
+									"let favoriteColours = ['Blue', 'Red', 'Yellow', 'Orange', 'Green'];",
+									"",
+									"pm.globals.set(\"favoriteColours\", _.shuffle(favoriteColours));",
+									"",
+									"// Using the .shuffle() function to change the order of an array and set the variable to the first one using .first()",
+									"pm.globals.set(\"todaysFavoriteColour\", _.first(_.shuffle(favoriteColours)));",
+									"",
+									"// Using the _.uniq() function to create a new array within the replicated values",
+									"let uniqueAnimals = [\"Dog\", \"Cat\", \"Dog\", \"Cow\", \"Dog\", \"Lion\", \"Dog\", \"Horse\"];",
+									"",
+									"pm.globals.set(\"uniqueAnimals\", _.uniq(uniqueAnimals));",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"users\": [\n        {\n            \"firstName\": \"joe\",\n            \"lastName\": \"bloggs\",\n            \"favoriteNumber\": \"{{favoriteNumber}}\",\n            \"favoriteColours\": \"{{favoriteColours}}\",\n            \"todaysFavoriteColour\": \"{{todaysFavoriteColour}}\",\n            \"uniqueAnimals\": \"{{uniqueAnimals}}\"\n        }\n    ]\n}"
+						},
+						"url": {
+							"raw": "https://postman-echo.com/post?startDate={{startDate}}&endDate={{endDate}}",
+							"protocol": "https",
+							"host": [
+								"postman-echo",
+								"com"
+							],
+							"path": [
+								"post"
+							],
+							"query": [
+								{
+									"key": "startDate",
+									"value": "{{startDate}}"
+								},
+								{
+									"key": "endDate",
+									"value": "{{endDate}}"
+								}
+							]
+						},
+						"description": "In this example, we will be using some of the built-In modules that come included in the Postman app. \n\nThere are a number of modules available but we'll be taking a closer look at [Lodash](https://lodash.com/docs/4.17.15) and [Moment](https://momentjs.com/docs/)."
+					},
+					"response": []
+				},
+				{
+					"name": "Example Six - Console Logs",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c2c40096-5f51-4880-adb0-5395f6594c36",
+								"exec": [
+									"// Logging details of the request out to the console",
+									"console.log(`${pm.info.eventName} - This is executed in the Tests Script after the request is sent`);",
+									"",
+									"// Parsing all the response data and saving that to a variable ",
+									"const jsonData = pm.response.json();",
+									"",
+									"// Using console.log() to confirm the data being returned before creating your assertions ",
+									"pm.test(\"All the objects have the correct keys\", () => {",
+									"    _.each(jsonData.results, (result) => {",
+									"        console.log(_.keys(result));",
+									"        //pm.expect(result).to.have.keys('gender', 'name', 'dob')",
+									"    });",
+									"});",
+									"",
+									"// Using console.log() to confirm the value that we want to check has the correct datatype",
+									"pm.test(\"All the properties have the correct data type\", () => {",
+									"    _.each(jsonData.results, (result) => {",
+									"        console.log(`${typeof result.name.first} - ${result.name.first}`);",
+									"        // pm.expect(result.name.first).to.be.a('string')",
+									"    });",
+									"});",
+									"",
+									"// Logging out the cookie information",
+									"console.log(pm.cookies);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "2dea1a09-7575-47b8-9964-a4c205fe4f5e",
+								"exec": [
+									"// Indentify where the the log statement has been run",
+									"console.log(`${pm.info.eventName} - This is executed in the Pre-Request Script before the request is sent`);",
+									"",
+									"// Logging out the name of the request being run",
+									"console.log(`Request Name: ${pm.info.requestName}`);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{randomMeURL}}/?inc=gender,name,dob",
+							"host": [
+								"{{randomMeURL}}"
+							],
+							"path": [
+								""
+							],
+							"query": [
+								{
+									"key": "inc",
+									"value": "gender,name,dob"
+								}
+							]
+						},
+						"description": "In this example, we will be using the Postman Console. This is invaluable when debugging tests or used as a helper, to log out different parts of the `Request` or `Response` using the [API Sandbox reference](https://learning.getpostman.com/docs/postman/scripts/postman_sandbox_api_reference/) doc."
+					},
+					"response": []
+				},
+				{
+					"name": "Example Seven - Schema validation with Ajv",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c2c40096-5f51-4880-adb0-5395f6594c36",
+								"exec": [
+									"var Ajv = require('ajv'),",
+									"    // Using the Ajv options",
+									"    ajv = new Ajv({logger: console, allErrors: true, verbose: true}),",
+									"    // Getting the schema that has been saved as a collection level variable - This has been added to the description for easy viewing",
+									"    schema = JSON.parse(pm.variables.get(\"schema\"));",
+									"",
+									"// Validate the Schema against the response body",
+									"pm.test('Schema is valid', () => {",
+									"    pm.expect(ajv.validate(schema, pm.response.json()), JSON.stringify(ajv.errors)).to.be.true;",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{randomMeURL}}/?inc=gender,name,dob&seed=postman",
+							"host": [
+								"{{randomMeURL}}"
+							],
+							"path": [
+								""
+							],
+							"query": [
+								{
+									"key": "inc",
+									"value": "gender,name,dob"
+								},
+								{
+									"key": "seed",
+									"value": "postman"
+								}
+							]
+						},
+						"description": "In this example, we will be using Ajv to validate the schema against the `Response Body` data.\n\n```json\n{\n   \"type\":\"object\",\n   \"required\":[\n      \"results\",\n      \"info\"\n   ],\n   \"properties\":{\n      \"results\":{\n         \"type\":\"array\",\n         \"items\":{\n            \"type\":\"object\",\n            \"required\":[\n               \"gender\",\n               \"name\",\n               \"dob\"\n            ],\n            \"properties\":{\n               \"gender\":{\n                  \"type\":\"string\"\n               },\n               \"name\":{\n                  \"type\":\"object\",\n                  \"required\":[\n                     \"title\",\n                     \"first\",\n                     \"last\"\n                  ],\n                  \"properties\":{\n                     \"title\":{\n                        \"type\":\"string\"\n                     },\n                     \"first\":{\n                        \"type\":\"string\"\n                     },\n                     \"last\":{\n                        \"type\":\"string\"\n                     }\n                  }\n               },\n               \"dob\":{\n                  \"type\":\"object\",\n                  \"required\":[\n                     \"date\",\n                     \"age\"\n                  ],\n                  \"properties\":{\n                     \"date\":{\n                        \"type\":\"string\"\n                     },\n                     \"age\":{\n                        \"type\":\"integer\"\n                     }\n                  }\n               }\n            }\n         }\n      },\n      \"info\":{\n         \"type\":\"object\",\n         \"required\":[\n            \"seed\",\n            \"results\",\n            \"page\",\n            \"version\"\n         ],\n         \"properties\":{\n            \"seed\":{\n               \"type\":\"string\"\n            },\n            \"results\":{\n               \"type\":\"integer\"\n            },\n            \"page\":{\n               \"type\":\"integer\"\n            },\n            \"version\":{\n               \"type\":\"string\"\n            }\n         }\n      }\n   }\n}\n```"
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "f9f02d4f-c4a4-491a-9a30-176c86653f45",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "61c857f1-b86b-44ea-9b29-8edb35b57f17",
+				"type": "text/javascript",
+				"exec": [
+					"pm.test(\"Status code is 200\", function () {",
+					"    pm.response.to.be.ok;",
+					"});",
+					"",
+					"pm.test(`Response time is less than 2000ms - Response Time: ${pm.response.responseTime}ms`, function () {",
+					"    pm.expect(pm.response.responseTime).to.be.below(2000);",
+					"});"
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "2bb04dbc-b165-4e88-ba2e-1d3dadec3a40",
+			"key": "schema",
+			"value": "{\n   \"type\":\"object\",\n   \"required\":[\n      \"results\",\n      \"info\"\n   ],\n   \"properties\":{\n      \"results\":{\n         \"type\":\"array\",\n         \"items\":{\n            \"type\":\"object\",\n            \"required\":[\n               \"gender\",\n               \"name\",\n               \"dob\"\n            ],\n            \"properties\":{\n               \"gender\":{\n                  \"type\":\"string\"\n               },\n               \"name\":{\n                  \"type\":\"object\",\n                  \"required\":[\n                     \"title\",\n                     \"first\",\n                     \"last\"\n                  ],\n                  \"properties\":{\n                     \"title\":{\n                        \"type\":\"string\"\n                     },\n                     \"first\":{\n                        \"type\":\"string\"\n                     },\n                     \"last\":{\n                        \"type\":\"string\"\n                     }\n                  }\n               },\n               \"dob\":{\n                  \"type\":\"object\",\n                  \"required\":[\n                     \"date\",\n                     \"age\"\n                  ],\n                  \"properties\":{\n                     \"date\":{\n                        \"type\":\"string\"\n                     },\n                     \"age\":{\n                        \"type\":\"integer\"\n                     }\n                  }\n               }\n            }\n         }\n      },\n      \"info\":{\n         \"type\":\"object\",\n         \"required\":[\n            \"seed\",\n            \"results\",\n            \"page\",\n            \"version\"\n         ],\n         \"properties\":{\n            \"seed\":{\n               \"type\":\"string\"\n            },\n            \"results\":{\n               \"type\":\"integer\"\n            },\n            \"page\":{\n               \"type\":\"integer\"\n            },\n            \"version\":{\n               \"type\":\"string\"\n            }\n         }\n      }\n   }\n}",
+			"type": "string"
+		},
+		{
+			"id": "2b5d3aed-873a-4641-a3cb-f793b9b81fdc",
+			"key": "randomMeURL",
+			"value": "https://randomuser.me/api",
+			"type": "string"
+		},
+		{
+			"id": "0d938ea9-1e9b-4d4d-b442-9351a4410f17",
+			"key": "mockURL",
+			"value": "https://cc2a13fb-6729-4a39-a2d9-3cd599b564b5.mock.pstmn.io",
+			"type": "string"
+		}
+	]
+}
