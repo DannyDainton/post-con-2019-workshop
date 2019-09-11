@@ -1,4 +1,4 @@
-# POST/CON 2019 Workshop
+# POST/CON 2019 - Testing, Automation and Reporting Workshop
 
 ![POST/CON2019](./Postcon2019.jpeg)
 
