@@ -33,4 +33,6 @@ https://www.getpostman.com/collections/24473d1926b7ff9a8567 or http://bit.ly/run
 
 - [Reporter packages on NPM](https://www.npmjs.com/search?q=newman-reporter)
 - [HTML Reporter](https://www.npmjs.com/package/newman-reporter-html)
+  - [Live HTML Report](http://bit.ly/newmanhtml)
 - [HTMLEXTRA Reporter](https://www.npmjs.com/package/newman-reporter-htmlextra)
+  - [Live HTMLEXTRA Report](http://bit.ly/newmanhtmlextra)
