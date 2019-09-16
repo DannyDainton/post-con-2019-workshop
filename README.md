@@ -2,11 +2,11 @@
 
 ![POST/CON2019](./Assets/Postcon2019.jpeg)
 
-This repo contains a set of links and resources used during the POST/CON 2019 _Testing, Automation and Reporting_ Workshop, presented by Trent McCann and Danny Dainton The PDF of the slide deck for the workshop can also be found in the `Assets` directory.
+This repo contains a set of links and resources used during the POST/CON 2019 _Testing, Automation and Reporting_ Workshop, presented by Trent McCann and Danny Dainton. The `PDF` file of the slide deck for the workshop can also be found in the `Assets` directory.
 
 ## Collection Import Links
 
-For this workshop we will be using the following Collections, these will need to be imported into your local Postman app. This can be done be either cloning the repo and importing the `Collections` folder from the `Assets` directory or using the sharable URL Links to the Collections below.
+For this workshop we will be using the following Collections, these will need to be imported into your local Postman app. This can be done by either cloning the repo and importing the `Collections` folder from the `Assets` directory or using the sharable URL Links to the Collections below.
 
 ![Import From Link](./Assets/Import_From_Link.gif)
 
@@ -36,9 +36,9 @@ These links have been created straight from the Postman application and provide 
 
 ## Advanced Testing
 
-This section of the workshop will concentrate on exposing some of the more _Advanced_ features available for you to use in the `Pre-Request Scripts` and `Tests` tabs. Some of these features might already be familiar to you but hopefully, we're going to be using these in a different way than you're used too. Some of them might be brand new and give you some insights into how these _could_ be used in your context.
+This section of the workshop will concentrate on exposing some of the more _Advanced_ features available for you to use in the `Pre-Request Scripts` and `Tests` tabs. Some of these features might already be familiar to you but hopefully, we're going to be using these in a different way than you're used too. Some of them might be brand new and give you some insights into how this _could_ be used in your context.
 
-The `Testing Module - POST/CON 2019` Collection that you imported contains a series of `examples` where we will be showing you how some of the Postman features can be used within a request. These examples are designed to be simple and not a _complete_ use case solution, it's more about the expose of the lesser known features and describing the different ways in which they could be used.
+The `Testing Module - POST/CON 2019` Collection that you imported contains a series of `examples` where we will be showing you how some of the Postman features can be used within a request. These examples are designed to be simple and not a _complete_ use case solution, it's more about the expose of the lesser-known features and describing the different ways in which they could be used.
 
 Before breaking down the features, I want to highlight the importance of this document on our learning centre - [API Sandbox Reference](https://learning.getpostman.com/docs/postman/scripts/postman_sandbox_api_reference/), It's such an important page to have as a reference guide when doing anything in the Sandbox environment. It gives you tons of functions available and where they can be used - Well worth getting not only familiar with but also bookmarking as I know it's something that I continue to come back to all the time.
 
@@ -46,11 +46,11 @@ Let's look at the different examples in the `Testing Module - POST/CON 2019` Col
 
 #### Example One
 
-For many versions `Dynamic Variables` have been part of the Postman app, these have been extremely valuable when needing to create random data in different area of the application. However, if you ever needed something other that a random `Int`, `timestamp` or `guid` you would need to either hardcode these values or create some JS code in the Sandbox.
+For many versions `Dynamic Variables` have been part of the Postman app, these have been extremely valuable when needing to create random data in a different area of the application. However, if you ever needed something other than a random `Int`, `timestamp` or `guid` you would need to either hardcode these values or create some JS code in the Sandbox.
 
 Now that's a thing of the past with the introduction of the random fake data variables into the application. A subset of the awesome [FakerJS](https://github.com/marak/Faker.js/) module has been added to allow you to create different random data sets in your request.
 
-In the first example we are using these random fake data variables, a list of these can be [found here](https://learning.getpostman.com/docs/postman/scripts/postman_sandbox_api_reference/#dynamic-variables). In the first `POST` request, we are using these in the `params`, `headers` and `body`. They are returned in the response results from the Postman Echo API.
+In the first example, we are using these random fake data variables, a list of these can be [found here](https://learning.getpostman.com/docs/postman/scripts/postman_sandbox_api_reference/#dynamic-variables). In the first `POST` request, we are using these in the `params`, `headers` and `body`. They are returned in the response results from the Postman Echo API.
 
 ```json
 {
@@ -86,7 +86,7 @@ For the second example, this is similar to the first but this is showing that no
 
 #### Example Three
 
-In this example, we will be taking a look at some of the tests that you can create to check for certain higher level items that relate to the whole request. We have covered the `Status Code` and the `Response Time` checks at the start of the workshop but these only really just give you a very focussed level of confidence in your API endpoints. Postman provides some out of the box methods available to you via the `pm.*` API in the Sandbox, these can provide you with a quick set of higher level checks that can alert you to issues in the API quicker.
+In this example, we will be taking a look at some of the tests that you can create to check for certain higher-level items that relate to the whole request. We have covered the `Status Code` and the `Response Time` checks at the start of the workshop but these only really just give you a very focussed level of confidence in your API endpoints. Postman provides some out of the box methods available to you via the `pm.*` API in the Sandbox, these can provide you with a quick set of higher-level checks that can alert you to issues in the API quicker.
 
 One of these is the `.to.have.header` which will allow you to check for certain response headers that you feel are important, maybe you have a custom header that you use and you want to ensure this is correct and showing the correct value. More information about all the other functions that you can use, can be [found here](https://learning.getpostman.com/docs/postman/scripts/postman_sandbox_api_reference/#response-assertion-api-available-in-the-test-scripts).
 
@@ -108,7 +108,7 @@ The .gif shows the header check as well as the other assertions listed running a
 
 #### Example Four
 
-At the start of the workshop we covered using some of the `Test Snippets` available to you, these cover some of the more general tests and don't really account for your own context. Using the [ChaiJS](https://www.chaijs.com/api/bdd/) assertion library allows you to create much better assertion in a very readable way.
+At the start of the workshop we covered using some of the `Test Snippets` available to you, these cover some of the more general tests and don't account for your context. Using the [ChaiJS](https://www.chaijs.com/api/bdd/) assertion library allows you to create much better assertion in a very readable way.
 
 Example Four covers more of the different tests that you can create, using ChaiJS to check for different details about the actual response data. These checks can check for anything that is a concern or a risk to you. You will be able to use the ChaiJS functions to check that the correct `keys` are present in the response, the correct data type (string, boolean, object, array, number) are being used, check that values contain `oneOf` a certain value.
 
@@ -130,7 +130,7 @@ pm.test("The email address should contain the correct name", () => {
 });
 ```
 
-Another example of the tests that you _could_ create are things that check an `object` for various different scenarios. For instance, the it is actually an `object` that contains certain `keys`. Checking that the different properties are the correct data types and are not `empty`, `null` or `undefined`. Finally, checking to see that the correct `datetime` format is being returned in the response.
+Another example of the tests that you _could_ create are things that check an `object` for various scenarios. For instance, it is an `object` that contains certain `keys`. Checking that the different properties are the correct data types and are not `empty`, `null` or `undefined`. Finally, check to see that the correct `datetime` format is being returned in the response.
 
 ```javascript
 // Testing multiple different scenarios for the `dob` object
@@ -166,11 +166,11 @@ In the .gif you can see the two tests above and the additional assertions using 
 
 #### Example Five
 
-In this example, we will be looking at a couple of the built-in modules that come with the Postman app. There are a few different utility type modules that extract the pain away from create custom JS code in the Sandbox environment to achieve the same thing.
+In this example, we will be looking at a couple of the built-in modules that come with the Postman app. There are a few different utility type modules that extract the pain away from creating custom JS code in the Sandbox environment to achieve the same thing.
 
-We're going to look at 2 modules [Lodash](https://lodash.com/docs/) and [Moment](https://momentjs.com/docs/), if you have worked with Node projects in the past, these 2 modules are going to be familiar to you. Lodash contains lots of different helpers that allow you to do a number of different things, that's quite a vague sentence but there are far too many functions available to cover each one in a scenario.
+We're going to look at 2 modules [Lodash](https://lodash.com/docs/) and [Moment](https://momentjs.com/docs/), if you have worked with Node projects in the past, these 2 modules are going to be familiar to you. Lodash contains lots of different helpers that allow you to do several different things, that's quite a vague sentence but there are far too many functions available to cover each one in a scenario.
 
-I'm going to use a couple of these in the `Pre-request Script` and `Tests` to just show you a couple of the ways they _can_ be used to create and assert against the response data. As well as Lodash, we have the `Moment` module that deals with all things time. Again, this a a very powerful module with lots of cool features but I'm only going to be using one here to show you a simple use case.
+I'm going to use a couple of these in the `Pre-request Script` and `Tests` to just show you a couple of the ways they _can_ be used to create and assert against the response data. As well as Lodash, we have the `Moment` module that deals with all things time. Again, this a very powerful module with lots of cool features but I'm only going to be using one here to show you a simple use case.
 
 ```json
 {
@@ -186,7 +186,7 @@ I'm going to use a couple of these in the `Pre-request Script` and `Tests` to ju
     ]
 }
 ```
-I'm only going to be using a couple of the Lodash functions for the example but hopefully these give you an idea how to these or any other ones. This is just something simple using the `_.uniq()` function and this will reduce an array of items, in this case, a list of Animals and create a new array with out the unique values. This is very basic and in some cases not at all relevant to your context but it's giving you more of a feel of the things that you _could_ use when creating your test suites.
+I'm only going to be using a couple of the Lodash functions for the example but hopefully, these give you an idea how to these or any other ones. This is just something simple using the `_.uniq()` function and this will reduce an array of items, in this case, a list of Animals and create a new array without the unique values. This is very basic and in some cases not at all relevant to your context but it's giving you more of a feel of the things that you _could_ use when creating your test suites.
 
 ```javascript
 // Using the _.uniq() function to create a new array within the replicated values
@@ -222,7 +222,7 @@ If you have used the `console.log()` statements in a browsers Dev Tools, you're 
 
 #### Example Seven
 
-This final example is a basic introduction to Schema validations, this is a workshop in itself but if done correctly these validations can cover many of the individual test scenarios, all at the same time. Postman comes with the built-in [Ajv](https://github.com/epoberezkin/ajv) module with allows you do some very complex checks on the data being returned in the response.
+This final example is a basic introduction to Schema validations, this is a workshop in itself but if done correctly these validations can cover many of the individual test scenarios, all at the same time. Postman comes with the built-in [Ajv](https://github.com/epoberezkin/ajv) module which allows you to do some very complex checks on the data being returned in the response.
 
 ```javascript
 var Ajv = require('ajv'),
@@ -237,7 +237,7 @@ pm.test('Schema is valid', () => {
 });
 ```
 
-This .gif shows you the schema validation in action, the test code above is only a single part of it though. The actually `schema` is set to a Collection level variable and the test code is setting that and using it in the assertion. In the .gif, you can see the schema has been added to the description of the request, so that it can be read easily and the different parts of the schema can be checked off against the response.
+This .gif shows you the schema validation in action, the test code above is only a single part of it though. The actually `schema` is set to a Collection level variable and the test code is setting that and using it in the assertion. In the .gif, you can see the schema has been added to the description of the request so that it can be read easily and the different parts of the schema can be checked off against the response.
 
 ![Example Seven](./Assets/Examples/Example_Seven.gif)
 
@@ -256,7 +256,7 @@ This .gif shows you the schema validation in action, the test code above is only
 
 ## Automated Testing
 
-This section of the workshop will cover your first steps into Automating the Collections that you have been running on a request per request basis. First we'll show you how you can run the very basic `POST/CON 2019` Collection, that you imported earlier, through the Built-In Collection Runner.
+This section of the workshop will cover your first steps into Automating the Collections that you have been running on a request per request basis. First, we'll show you how you can run the very basic `POST/CON 2019` Collection, that you imported earlier, through the Built-In Collection Runner.
 
 ![Basic Collection Runner](./Assets/Basic_Collection_Runner.gif)
 
@@ -266,25 +266,25 @@ This section of the workshop will cover your first steps into Automating the Col
 
 This will run the selected `Collection` and the requests listed within it, as there are only 6 requests, this will be super quick. Only the `Run Results` window you will see all the information about the run. From here, you can drill down into each of the requests by selecting the request name and expose details like the `Request URL, Headers, Body` and the `Request Headers, Body`. Also, you can see any `Tests` that have been run and the Pass/Fail results of these.
 
-Running Collections from the Built-In Runner is a easy way to add some much needed automation into your process. However, this is still a semi-manual task and this is where [Newman](https://github.com/postmanlabs/newman) comes into play. Newman is the Postman command line companion, this will give you the power to run the Collections straight from the command line and eliminating the need to drive these from the Postman UI.
+Running Collections from the Built-In Runner is an easy way to add some much-needed automation into your process. However, this is still a semi-manual task and this is where [Newman](https://github.com/postmanlabs/newman) comes into play. Newman is the Postman command-line companion, this will give you the power to run the Collections straight from the command line and eliminating the need to drive these from the Postman UI.
 
 Newman is a [NodeJS](https://nodejs.org/en/) package that can be installed globally onto your local machine using the following command:
 
 `npm install -g newman`
 
-Once installed, the Collections can be either run from the command line using an `Exported` JSON file or using the the sharable URL link (This process can be seen above).
+Once installed, the Collections can be either run from the command line using an `Exported` JSON file or using the sharable URL link (This process can be seen above).
 
 ![Newman File Export](./Assets/Newman/Newman_File_Export.gif)
 
 ![Newman Link](./Assets/Newman/Newman_Link.gif)
 
-This is an example of running Newman in the most the basic case, the module comes with several different command line options that can allow you to pass in different arguments and run the Collection with `environment` or `global` variable files are well as different `data` files and variations of the number of iterations etc.
+This is an example of running Newman in the most the basic case, the module comes with several different command-line options that can allow you to pass in different arguments and run the Collection with `environment` or `global` variable files are well as different `data` files and variations of the number of iterations etc.
 
 To list the full cli options available, just run the following command:
 
 `newman run -h`
 
-Newman also has a [Docker image](https://hub.docker.com/r/postman/newman/) this provides an easier way to run Collections via Newman, without having the need to have NodeJS installed on your local machines.
+Newman also has a [Docker image](https://hub.docker.com/r/postman/newman/) this provides an easier way to run Collections via Newman, without needing to have NodeJS installed on your local machines.
 
 If you have Docker installed, running a basic Collection is as easy as running the following command:
 
@@ -298,13 +298,13 @@ One method of doing this is to hook these up to [Jenkins](https://jenkins.io/) -
 
 A similar method of doing this can be [found here](https://www.youtube.com/watch?v=7ar4-O3vNiM) over on Valentin Despa's YouTube channel.
 
-As well as running these Collections with Newman via Jenkins, these _could_ also be hooked up to several other CI systems including TravisCI, CircleCI, GitLab and BitBucket.
+As well as running these Collections with Newman via Jenkins, this _could_ also be hooked up to several other CI systems including TravisCI, CircleCI, GitLab and BitBucket.
 
 A repo containing some of the different ways with demo examples and the `.yml` files needed can be [found here](https://github.com/DannyDainton/postman-ci-pipeline-example).
 
 ## Reporting
 
-This section of the workshop will be covering the different Reporting options available to you, when using Newman do run your Collections. In a number of the demos you would have seen the CLI reporter output from Newman. This is the default reporter that comes out of the box and contains a number of configuration options to allow you to display the output in a number of different ways. All the options can be [found here](https://github.com/postmanlabs/newman#cli-reporter).
+This section of the workshop will be covering the different Reporting options available to you, when using Newman do run your Collections. In a number of the demos, you would have seen the CLI reporter output from Newman. This is the default reporter that comes out of the box and contains several configuration options to allow you to display the output in many different ways. All the options can be [found here](https://github.com/postmanlabs/newman#cli-reporter).
 
 A couple of other _out of the box_ reporters are also available for you to use with the Newman, these include JSON, JUNIT, Progress and Emojitrain. These give you a different output depending on your needs. They can be specified using the `-r <reporter name>` command.
 
@@ -318,7 +318,7 @@ Newman was designed to be extendable, you can use Newman as a library within a N
 
 The reporting aspect of Newman can also be extended to allow for the creation of new reporters. These cover different use cases and is _generally_ driven from the efforts of the Postman community.
 
-Some boilerplate code is all you really need to get going, as long as the reporter follows the same naming convention `newman-reporter-<name>`, then this will be picked up be Newman when used in the `-r <reporter name>` command.
+Some boilerplate code is all you need to get going, as long as the reporter follows the same naming convention `newman-reporter-<name>`, then this will be picked up be Newman when used in the `-r <reporter name>` command.
 
 ```javascript
 function CustomNewmanReporter (emitter, reporterOptions, collectionRunOptions) {
@@ -329,13 +329,27 @@ function CustomNewmanReporter (emitter, reporterOptions, collectionRunOptions) {
 module.exports = CustomNewmanReporter
 ```
 
-More information about the creation of reporters can be [found here](https://github.com/postmanlabs/newman#creating-your-own-reporter).
+For example, creating an `index.js` file with something like this could be used with Newman. Not something that's actually going to do anything but it would use the reporter code to output the string. You would only need to use `-r BoilerPlateReporter --reporter-BoilerPlateReporter-word "Postman Is Awesome"` in the `newman run` command, to see the result.
+
+```javascript
+function BoilerPlateReporter (newman, reporterOptions) {
+
+    newman.on('done', function () {
+        console.log(`You can pass in words like: ${reporterOptions.word}`)
+    })
+
+}
+
+export BoilerPlateReporter;
+```
+
+More information about the creation of reporters can be [found here](https://github.com/postmanlabs/newman#creating-your-own-reporter). This also lists all the `.on()` functions that hold all the Collection run data.
 
 All the current reporter packages available can be found on [NPM](https://www.npmjs.com/search?q=newman-reporter), as these all need to follow the same naming convention, these are very easy to find. The packages cover options for `CSV`, `StatsD`, `Teamcity`, `Confluence` and many more. Currently, there are around 87 different packages.
 
-A couple of the packages are HTML reporters, Postman created a [HTML Reporter](https://www.npmjs.com/package/newman-reporter-html) that came with Newman but this was extracted out into it's own package. An example of what this looks like can be [found here](http://bit.ly/newmanhtml). By extracting this out into its own package, it allows community members to create forks of the project and extend out the information. This uncovers the Collection details that were previously missing and display these in a less 1 dimensional page view. The [HTMLEXTRA Reporter](https://www.npmjs.com/package/newman-reporter-htmlextra) is a different take on the original HTML reporter and a live demo of this can be [found here](http://bit.ly/newmanhtmlextra).
+A couple of the packages are HTML reporters, Postman created a [HTML Reporter](https://www.npmjs.com/package/newman-reporter-html) that came with Newman but this was extracted out into its own package. An example of what this looks like can be [found here](http://bit.ly/newmanhtml). By extracting this out into its own package, it allows community members to create forks of the project and extend out the information. This uncovers the Collection details that were previously missing and display these in a less 1-dimensional page view. The [HTMLEXTRA Reporter](https://www.npmjs.com/package/newman-reporter-htmlextra) is a different take on the original HTML reporter and a live demo of this can be [found here](http://bit.ly/newmanhtmlextra).
 
-Both of these packages, as well as all the others can be installed via NPM using the following command:
+Both of these packages, as well as all the others,  can be installed via NPM using the following command:
 
 `npm install -g newman-reporter-<reporter name>`
 
