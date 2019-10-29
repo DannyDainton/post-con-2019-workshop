@@ -4,33 +4,11 @@
 
 This repo contains a set of links and resources used during the POST/CON 2019 _Testing, Automation and Reporting_ Workshop, presented by Trent McCann and Danny Dainton. The `PDF` file of the slide deck for the workshop can also be found in the `Assets` directory.
 
-## Collection Import Links
+## Importing The Collection Files
 
-For this workshop we will be using the following Collections, these will need to be imported into your local Postman app. This can be done by either cloning the repo and importing the `Collections` folder from the `Assets` directory or using the sharable URL Links to the Collections below.
+For the different examples in this workshop, we will be using a couple of pre-created Collections. These Collections will *need* to be imported into your local Postman app. 
 
-![Import From Link](./Assets/Import_From_Link.gif)
-
-- Select `Import`
-- Select the `Import From Link` tab
-- Paste `URL` into the text field
-- Press the `Import` button
-
-### Advanced Testing Techniques Collection
-
-Use either this link: https://www.getpostman.com/collections/c76ac4f0a446524b9708 or this link: http://bit.ly/advtestingcollection
-
-### Collection Runner Demo Collection
-
-Use either this link: https://www.getpostman.com/collections/24473d1926b7ff9a8567 or this link: http://bit.ly/runnerdemo
-
-These links have been created straight from the Postman application and provide an easy way to share your collections with other Postman users. They can be either directly imported or used to run the Collection from the command line with Newman.
-
-![Create Collection Link](./Assets/Create_Collection_Link.gif)
-
-- Select the `>` option from the Collection name in the sidebar
-- Select `Share`
-- Select the `Get Link` tab
-- Select the `Get Link` button to create the new URL link
+This can be done by cloning the repo and importing the `Collections` folder from the [Assets](https://github.com/DannyDainton/post-con-2019-workshop/blob/master/Assets) directory, into your Postman app.
 
 ---
 
